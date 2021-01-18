@@ -22,7 +22,17 @@ proto_library(
 )
 
 buf_image(
-    name = "buf_basic",
+    name = "buf.bin",
+    out = "model.bin",
+    config = ":buf.yaml",
+    protos = [
+        ":sample_proto",
+    ],
+)
+
+buf_image(
+    name = "buf.json",
+    out = "model.json",
     config = ":buf.yaml",
     protos = [
         ":sample_proto",

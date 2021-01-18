@@ -15,6 +15,15 @@ def _buf_repositories():
     """Defines `WORKSPACE` repositories for Buf."""
     maybe(
         http_archive,
+        name = "bazel_skylib",
+        sha256 = "1c531376ac7e5a180e0237938a2536de0c54d93f5c278634818e0efc952dd56c",
+        urls = [
+            "https://github.com/bazelbuild/bazel-skylib/releases/download/1.0.3/bazel-skylib-1.0.3.tar.gz",
+            "https://mirror.bazel.build/github.com/bazelbuild/bazel-skylib/releases/download/1.0.3/bazel-skylib-1.0.3.tar.gz",
+        ],
+    )
+    maybe(
+        http_archive,
         name = "com_google_protobuf",
         sha256 = "e589e39ef46fb2b3b476b3ca355bd324e5984cbdfac19f0e1625f0042e99c276",
         strip_prefix = "protobuf-fde7cf7358ec7cd69e8db9be4f1fa6a5c431386a",
@@ -33,6 +42,7 @@ def _buf_repositories():
         downloaded_file_path = "buf_darwin.bin",
         sha256 = "0bba90cb07dd76626de9125b5ec09edfd52cc669ba124d6d154a36373bb35369",
         urls = ["https://github.com/bufbuild/buf/releases/download/v0.35.1/buf-Darwin-x86_64"],
+        executable = True,
     )
     maybe(
         http_file,
@@ -40,6 +50,7 @@ def _buf_repositories():
         sha256 = "b1986b786890562149cb1f341b1a089c80439844ca65391161397a8b0b9352a8",
         downloaded_file_path = "buf_linux.bin",
         urls = ["https://github.com/bufbuild/buf/releases/download/v0.35.1/buf-Linux-x86_64"],
+        executable = True,
     )
 
 
