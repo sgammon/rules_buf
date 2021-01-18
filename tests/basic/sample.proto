@@ -1,0 +1,15 @@
+
+/**
+ * Example proto for `rules_buf`.
+ */
+
+syntax = "proto3";
+
+package rules_buf.sample;
+
+
+// This is a sample proto for testing `rules_buf`.
+message SampleProto {
+    // Salutation to use when printing a sample message in an imaginary Hello World app.
+    string salutation = 1;
+}

@@ -1,0 +1,37 @@
+
+package(
+    default_visibility = ["//visibility:public"],
+)
+
+
+filegroup(
+    name = "buf_darwin",
+    srcs = [
+        "@buf_darwin//file",
+    ],
+)
+
+alias(
+    name = "darwin",
+    actual = ":buf_darwin",
+)
+
+filegroup(
+    name = "buf_linux",
+    srcs = [
+        "@buf_linux//file",
+    ],
+)
+
+alias(
+    name = "linux",
+    actual = ":buf_linux",
+)
+
+alias(
+    name = "buf",
+    actual = select({
+        "@bazel_tools//src/conditions:darwin": "@rules_buf//internal/tools:darwin",
+         "//conditions:default": "@rules_buf//internal/tools:linux",
+    })
+)

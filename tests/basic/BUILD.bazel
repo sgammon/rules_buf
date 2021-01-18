@@ -1,0 +1,30 @@
+
+load(
+    "@rules_proto//proto:defs.bzl",
+    "proto_library",
+)
+
+load(
+    "@rules_buf//buf:defs.bzl",
+    "buf_image",
+)
+
+
+exports_files([
+    "buf.yaml",
+])
+
+proto_library(
+    name = "sample_proto",
+    srcs = [
+        "sample.proto",
+    ],
+)
+
+buf_image(
+    name = "buf_basic",
+    config = ":buf.yaml",
+    protos = [
+        ":sample_proto",
+    ],
+)
