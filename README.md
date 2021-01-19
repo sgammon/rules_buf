@@ -65,11 +65,16 @@ proto_library(
 buf_image(
     name = "buf",
     config = "buf.yaml",
+    out = "model.buf.bin",
     protos = [
       ":another-proto",
     ],
 )
 ```
+
+**Note:** By setting the output to `*.bin`, you'll get a binary file. If you set the `out` to `.json`, you'll get a JSON file.
+
+If you want to pass extra args, you can do so with `extra_args`.
 
 **In `buf.yaml`:**
 ```yaml
